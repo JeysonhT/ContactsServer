@@ -95,5 +95,28 @@ public class DaoCimp implements DaoContacto {
         String numero = String.valueOf(Telefono);
         return numero.length() > 8;
     }
+
+    //cuando se precisa obtener un solo contacto por pantalla, su parametro requiere una palabra
+    //clave para buscar un contacto especifico.
+    @Override
+    public Contacto findContact(String Clave) {
+        String query = "FROM Contacto WHERE Nombre =: Clave";
+
+        try {
+            Contacto ctc = entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
+                    .get(0);
+            return ctc;
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+
+    }
+
+    @Override
+    public Contacto findContact(int clave) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findContact'");
+    }
+    
     
 }
