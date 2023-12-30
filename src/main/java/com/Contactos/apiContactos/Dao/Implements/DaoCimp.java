@@ -46,7 +46,6 @@ public class DaoCimp implements DaoContacto {
         String Nombre = (String) c.get("nombre");
         int Telefono = (int) c.get("telefono");
 
-
         Contacto ctc = entityManager.find(Contacto.class, Id);
 
         ctc.setNombre(Nombre);
@@ -87,8 +86,7 @@ public class DaoCimp implements DaoContacto {
         }catch (IndexOutOfBoundsException e){
             return false;
         }
-        
-        
+            
     }
 
     private boolean validar(int Telefono) {
@@ -103,19 +101,25 @@ public class DaoCimp implements DaoContacto {
         String query = "FROM Contacto WHERE Nombre =: Clave";
 
         try {
-            Contacto ctc = entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
+            return entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
                     .get(0);
-            return ctc;
         } catch (IndexOutOfBoundsException e) {
             return null;
         }
 
     }
 
+    //Busqueda por numero de Telefono
     @Override
-    public Contacto findContact(int clave) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findContact'");
+    public Contacto findContact(int Clave) {
+        String query = "FROM Contacto WHERE Telefono =: Clave";
+
+        try{
+            return entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
+                    .get(0);   
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
     }
     
     

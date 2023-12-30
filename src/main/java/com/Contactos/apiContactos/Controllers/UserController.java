@@ -52,4 +52,9 @@ public class UserController {
     public Contacto findContacto(@PathVariable String Clave) {
         return daoContacto.findContact(Clave);
     }
+
+    @GetMapping(value = "Api/Contacto/Buscar/{Numero}")
+    public Contacto findContacto(@PathVariable int Numero) {
+        return daoContacto.findContact(Numero);
+    }
 }
