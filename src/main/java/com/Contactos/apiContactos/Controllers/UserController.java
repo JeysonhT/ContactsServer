@@ -47,4 +47,14 @@ public class UserController {
     public ResponseEntity<String> putContact(@RequestBody Map<String, Object> c) {
         return daoContacto.UpdateContact(c);
     }
+
+    @GetMapping(value = "api/Contacto/Buscar/{Clave}")
+    public Contacto findContacto(@PathVariable String Clave) {
+        return daoContacto.findContact(Clave);
+    }
+
+    @GetMapping(value = "Api/Contacto/Buscar/{Numero}")
+    public Contacto findContacto(@PathVariable int Numero) {
+        return daoContacto.findContact(Numero);
+    }
 }

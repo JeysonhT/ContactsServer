@@ -46,7 +46,6 @@ public class DaoCimp implements DaoContacto {
         String Nombre = (String) c.get("nombre");
         int Telefono = (int) c.get("telefono");
 
-
         Contacto ctc = entityManager.find(Contacto.class, Id);
 
         ctc.setNombre(Nombre);
@@ -87,13 +86,41 @@ public class DaoCimp implements DaoContacto {
         }catch (IndexOutOfBoundsException e){
             return false;
         }
-        
-        
+            
     }
 
     private boolean validar(int Telefono) {
         String numero = String.valueOf(Telefono);
         return numero.length() > 8;
     }
+
+    //cuando se precisa obtener un solo contacto por pantalla, su parametro requiere una palabra
+    //clave para buscar un contacto especifico.
+    @Override
+    public Contacto findContact(String Clave) {
+        String query = "FROM Contacto WHERE Nombre =: Clave";
+
+        try {
+            return entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
+                    .get(0);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+
+    }
+
+    //Busqueda por numero de Telefono
+    @Override
+    public Contacto findContact(int Clave) {
+        String query = "FROM Contacto WHERE Telefono =: Clave";
+
+        try{
+            return entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
+                    .get(0);   
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+    }
+    
     
 }

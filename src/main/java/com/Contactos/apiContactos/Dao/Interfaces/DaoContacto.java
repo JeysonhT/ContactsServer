@@ -17,4 +17,9 @@ public interface DaoContacto {
     ResponseEntity<String> UpdateContact(Map<String, Object> c);
 
     ResponseEntity<String> postContact(Contacto c);
+
+    Contacto findContact(String clave);
+    
+    Contacto findContact(int clave);
+
 }
