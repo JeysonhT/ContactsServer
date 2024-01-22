@@ -48,7 +48,7 @@ public class UserController {
         return daoContacto.UpdateContact(c);
     }
 
-    @GetMapping(value = "api/Contacto/Buscar/{Clave}")
+    @GetMapping(value = "Api/Contacto/BuscarStr/{Clave}")
     public Contacto findContacto(@PathVariable String Clave) {
         return daoContacto.findContact(Clave);
     }

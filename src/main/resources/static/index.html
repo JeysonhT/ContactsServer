@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+   
+    <link rel="icon" href="assets/libro-de-contactos.png">
+    <title>Contactos</title>
+</head>
+<body>
+    <div id="Entrada">
+        <form onsubmit="event.preventDefault(); guardarContacto();">
+            <label for="Contactos">"Registra Tus contactos"</label>
+            <input type="text" required="" id="txtNombre" value="Nombre">
+            <input type="text" id="txtApellido" value="Apellido">
+            <input type="tel" id="Number" required="" value="Telefono">
+            <input type="text" id="txtCorreo" value="Email">
+            <input type="text" id="txtDireccion" required="" value="Direccion">
+            <button type="submit" class="botonGuardar">Guardar Contacto</button>
+        </form>
+    </div>
+    <div id="Contactos">
+        
+    
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

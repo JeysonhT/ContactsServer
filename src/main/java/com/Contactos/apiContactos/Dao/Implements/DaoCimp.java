@@ -91,7 +91,7 @@ public class DaoCimp implements DaoContacto {
 
     private boolean validar(int Telefono) {
         String numero = String.valueOf(Telefono);
-        return numero.length() > 8;
+        return numero.length() >= 8;
     }
 
     //cuando se precisa obtener un solo contacto por pantalla, su parametro requiere una palabra
@@ -104,7 +104,7 @@ public class DaoCimp implements DaoContacto {
             return entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
                     .get(0);
         } catch (IndexOutOfBoundsException e) {
-            return null;
+            return FindbyAddress(Clave);
         }
 
     }
@@ -121,6 +121,22 @@ public class DaoCimp implements DaoContacto {
             return null;
         }
     }
+
+    private Contacto FindbyAddress(String Clave){
+
+        String query = "FROM Contacto WHERE Direccion =: Clave";
+
+        try{
+            return entityManager.createQuery(query, Contacto.class).setParameter("Clave", Clave).getResultList()
+                    .get(0);
+
+        }catch (IndexOutOfBoundsException e){
+            return null;
+        }
+  
+    }
+
+
     
     
 }

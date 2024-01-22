@@ -1,0 +1,56 @@
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+#Entrada {
+    background-color: burlywood;
+    text-align: center;
+    padding: 20px;
+    height: 300px;
+    border-radius: 10px;
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#Entrada form {
+    
+    width: min-content;
+    font: 1em sans-serif;
+}
+
+#Entrada form input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border-style: groove;
+}
+
+.botonGuardar {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonGuardar:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
